@@ -1,11 +1,11 @@
 class Repuesto {
-    constructor(id, marca, nombre, precio, stock) {
-        this.id = id
-        this.marca = marca
-        this.nombre = nombre
-        this.precio = precio
-        this.stock = stock
-    }
+  constructor(id, marca, nombre, precio, stock) {
+    this.id = id
+    this.marca = marca
+    this.nombre = nombre
+    this.precio = precio
+    this.stock = stock
+  }
 }
 
 const repuesto1 = new Repuesto("1", "Honda", "Carburador", 3500, 30)
@@ -19,15 +19,44 @@ const repuestos = [repuesto1, repuesto2, repuesto3, repuesto4, repuesto5]
 const divRepuestos = document.getElementById("divRepuestos")
 
 repuestos.forEach((repuestoArray) => {
-    divRepuestos.innerHTML += `
+  divRepuestos.innerHTML += `
     <div class="card" style="width: 18rem;">
     <div class="card-body">
       <h5 class="card-title">${repuestoArray.nombre}</h5>
       <h6 class="card-subtitle mb-2 text-muted">${repuestoArray.marca}</h6>
       <p class="card-text">PRECIO: $${repuestoArray.precio}</p>
       <p class="card-text">Ultimas ${repuestoArray.stock} unidades</p>
+      <button id="aniadirCarrito" class="boton-aniadir" data-id="${repuestoArray.id}">Añadir al Carrito</button>
     </div>
   </div>
     `
 })
 
+const carrito = []
+
+const botones = document.querySelectorAll(".boton-aniadir")
+
+botones.forEach((boton) => {
+  boton.addEventListener("click", () => {
+    const id = boton.dataset.id
+    const repuesto = repuestos.find((repuesto) => repuesto.id === id)
+    carrito.push(repuesto)
+    console.log('carrito:', carrito);
+  })
+})
+
+
+const botonTotal = document.getElementById("botonTotal")
+
+let total = 0
+const obtenerTotal = () => {
+  carrito.forEach((repuestoArray) => {
+      total += repuestoArray.precio
+  })
+  return total
+}
+
+botonTotal.addEventListener("click", () => {
+  obtenerTotal()
+  console.log(`El precio total de su compra es: $${total}`);
+})

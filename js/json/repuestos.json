@@ -1,0 +1,37 @@
+[
+    {
+        "id": 1,
+        "marca": "Honda",
+        "nombre": "Carburador",
+        "precio": 3500,
+        "stock": 30
+    },
+    {
+        "id": 2,
+        "marca": "Yamaha",
+        "nombre": "Bomba de aceite",
+        "precio": 3200,
+        "stock": 23
+    },
+    {
+        "id": 3,
+        "marca": "Kawasaki",
+        "nombre": "Cigueñal",
+        "precio": 5000,
+        "stock": 20
+    },
+    {
+        "id": 4,
+        "marca": "Suzuki",
+        "nombre": "Arbol de levas",
+        "precio": 2200,
+        "stock": 15
+    },
+    {
+        "id": 5,
+        "marca": "BMW",
+        "nombre": "Kit de transmision",
+        "precio": 1300,
+        "stock": 13
+    }
+]
